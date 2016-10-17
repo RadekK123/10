@@ -14,22 +14,17 @@ function Telefon (marka, cena, kolor) {
 	}
 }
 
-function getWarranyCost() {
+Telefon.prototype.getWarranyCost = function () {
 	
-	var sale = (( this.cena) * promotion );
-	console.log( 'Kupując teraz telefon, gwarancję na kolejne 2 lata otrzymasz za: ' + sale + ' zł' );
-	return sale;
-}
-
-Telefon.prototype.getWarranyCost() {
-
-}
+	this.sale = this.cena * promotion;
+	return this.sale;
+};
 
 
 Telefon.prototype.printInfo = function() {
-
+	this.getWarranyCost();
 	var prise = this.isCheap ? 'Stosunkowo tani telefon' : 'Dość drogi telefon';
-	console.log('Marka telefonu to '+ this.marka + ' ma kolor '+ this.kolor + ' a jego cena wynosi ' + this.cena + ' złotych.' + prise + '.');
+	console.log('Marka telefonu to '+ this.marka + ' ma kolor '+ this.kolor + ' a jego cena wynosi ' + this.cena + ' złotych.' + prise + '.' + '/ Kupując teraz telefon, gwarancję na kolejne 2 lata otrzymasz za: ' + this.sale +' zł');
 };
 
 var iPhone6s = new Telefon('Apple',2000,'czarny');
